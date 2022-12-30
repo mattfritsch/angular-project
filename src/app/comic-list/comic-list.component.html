@@ -1,0 +1,18 @@
+<div class="flex flex-wrap -mx-4 bg-gray-100 justify-center p-16 ">
+  <app-comic *ngFor="let comic of comics; let i = index"
+             [id]="comic.id"
+             [name]="comic.name"
+             [number]="comic.number"
+             [description]="comic.description"
+             [author]="comic.author"
+             [designer]="comic.designer"
+             [cover]="comic.cover"
+             [isRead]="comic.isRead"
+             [typeOfList]="comic.typeOfList"
+             [universe]="comic.universe"
+             [seriesNumber]="comic.seriesNumber"
+             [isSerie]="comic.isSerie"
+             [releaseDate]="comic.releaseDate"
+             >
+  </app-comic>
+</div>

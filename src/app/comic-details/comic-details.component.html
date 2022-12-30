@@ -1,0 +1,22 @@
+<div class="flex flex-col justify-center p-9">
+  <h1 class="font-bold text-center text-4xl">{{comic.name}} #{{comic.seriesNumber}}</h1>
+  <h2 class="font-bold text-center text-xl" *ngIf="comic.typeOfList === 'readingList'">Liste de lecture</h2>
+  <h2 class="font-bold text-center text-xl" *ngIf="comic.typeOfList === 'wishList'">Liste d'envie</h2>
+  <div class="flex flex-row justify-center mb-44">
+    <div class="flex flex-col justify-center ml-56">
+      <img class="w-1/2" [src]="comic.cover" alt="{{comic.name}} cover">
+    </div>
+    <div class="flex flex-col justify-center mb-44 mr-56 text-white rounded-xl w-1/2 p-6 text-center py-16" [ngClass]="{ 'bg-red-700' : comic.universe === 'marvel',
+  'bg-blue-700' : comic.universe === 'dc'}">
+      <p class="font-semibold">{{comic.description}}</p>
+      <br>
+      <p>Par <span class="font-bold">{{comic.author}}</span></p>
+      <p>Dessiné par <span class="font-bold">{{comic.designer}}</span></p>
+      <p>Sortie le <span class="font-bold">{{comic.releaseDate}}</span></p>
+      <br>
+      <p *ngIf="comic.isSerie">Ce comic fait partie d'une série, et est le numéro <span class="font-bold">{{comic.seriesNumber}}</span> de la série</p>
+      <p *ngIf="comic.isRead">Vous avez <span class="font-bold">lu</span> {{comic.name}}</p>
+      <p *ngIf="!comic.isRead">Vous n'avez <span class="font-bold">pas lu</span> {{comic.name}}</p>
+    </div>
+  </div>
+</div>

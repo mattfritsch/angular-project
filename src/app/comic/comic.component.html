@@ -1,0 +1,46 @@
+<div
+  class="
+          bg-white
+          shadow-md
+          h-96
+          mx-3
+          mb-16
+          rounded-3xl
+          flex flex-col
+          justify-around
+          items-center
+          overflow-hidden
+          sm:flex-row sm:h-52 sm:w-3/5
+          md:w-96
+        "
+>
+  <img class="h-1/2 w-full sm:h-full sm:w-1/2 object-cover" [src]="cover" alt="{{cover}} cover"/>
+
+  <div
+    class="
+            flex-1
+            w-full
+            flex flex-col
+            items-baseline
+            justify-around
+            h-1/2
+            pl-6
+            sm:h-full sm:items-baseline sm:w-1/2
+          "
+  >
+    <div class="flex flex-col justify-start items-baseline">
+      <h1 class="text-lg font-normal mb-0 text-gray-600 font-sans">
+        {{name}} <span *ngIf="seriesNumber != null"> #{{seriesNumber}}</span>
+      </h1>
+      <span class="text-xs text-indigo-300 mt-0">par {{author}}</span>
+    </div>
+    <p class="text-xs text-gray-500 w-4/5">
+      {{description}}
+    </p>
+    <div class="w-full flex justify-between items-center">
+        <button class="bg-green-800 mr-1 text-white px-3 py-1 rounded-sm shadow-md" [routerLink]="['/details', id]">Détails</button>
+        <button class="bg-yellow-500 mr-1 text-white px-3 py-1 rounded-sm shadow-md" [routerLink]="['/modif', id]">M</button>
+        <button class="bg-red-800 mr-5 text-white px-3 py-1 rounded-sm shadow-md" (click)="supr()">X</button>
+    </div>
+  </div>
+</div>

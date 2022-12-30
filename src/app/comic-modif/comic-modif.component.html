@@ -1,0 +1,145 @@
+<div *ngIf="change" class="flex flex-col justify-center text-center h-full">
+  <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3 mt-24 mb-24" role="alert">
+    <p class="font-bold">Information</p>
+    <p class="text-sm">Votre modification a bien été envoyé</p>
+  </div>
+</div>
+
+
+<div class="flex flex-col justify-center" *ngIf="!change">
+  <div class="flex flex-row justify-center">
+    <div class="flex flex-col justify-center ml-56 mr-56 mt-24 mb-24 w-1/2 space-y-5">
+      <div>
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
+          Nom du comic
+        </label>
+        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3
+      leading-tight focus:outline-none focus:bg-white focus:border-red-700" id="name" type="text" placeholder="Nom du comic"
+               [(ngModel)]="comic.name" required>
+      </div>
+
+      <div>
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="author">
+          Auteur
+        </label>
+        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3
+      leading-tight focus:outline-none focus:bg-white focus:border-red-700" id="author" type="text" placeholder="Nom de l'auteur"
+               [(ngModel)]="comic.author" required>
+      </div>
+
+      <div>
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="designer">
+          Dessinateur
+        </label>
+        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3
+      leading-tight focus:outline-none focus:bg-white focus:border-red-700" id="designer" type="text" placeholder="Nom du dessinateur"
+               [(ngModel)]="comic.designer" required>
+      </div>
+
+      <div>
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="cover">
+          Couverture du comics
+        </label>
+        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3
+      leading-tight focus:outline-none focus:bg-white focus:border-red-700" id="cover" type="text" placeholder="Lien de la couverture"
+               [(ngModel)]="comic.cover" required>
+      </div>
+
+      <div>
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="releaseDate">
+          Date de sortie
+        </label>
+        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3
+      leading-tight focus:outline-none focus:bg-white focus:border-red-700" id="releaseDate" type="text" placeholder="JJ/MM/AAAA"
+               [(ngModel)]="comic.releaseDate" required>
+      </div>
+
+    </div>
+    <div class="flex flex-col justify-center mr-56 mt-24 mb-24 w-1/2 space-y-5">
+      <div>
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="listType">
+          Choisissez une type de liste
+        </label>
+        <select id="listType" class="bg-gray-200 border text-gray-700 text-sm rounded-lg focus:outline-none focus:bg-white focus:border-red-700
+       block w-full p-2.5" [(ngModel)]="comic.typeOfList">
+          <option selected>Choisir une liste</option>
+          <option [value]="'wishList'">Liste d'envie</option>
+          <option [value]="'readingList'">Liste de lecture</option>
+        </select>
+      </div>
+      <div>
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="universe">
+          Choisissez un univers
+        </label>
+        <select id="universe" class="bg-gray-200 border text-gray-700 text-sm rounded-lg focus:outline-none focus:bg-white focus:border-red-700
+       block w-full p-2.5" [(ngModel)]="comic.universe">
+          <option selected>Choisir un univers</option>
+          <option [value]="'marvel'">Marvel Comics</option>
+          <option [value]="'dc'">DC Comics</option>
+        </select>
+      </div>
+      <div>
+        <h3 class="mb-4 font-bold text-gray-700">Comics lu</h3>
+        <ul class="w-48 text-sm font-medium text-gray-700 bg-gray-200 rounded-lg border border-gray-400">
+          <li class="w-full rounded-t-lg border-b border-gray-400">
+            <div class="flex items-center pl-3">
+              <input id="list-radio-read" type="radio" [value]="true" [(ngModel)]="comic.isRead" name="list-radio-read" class="w-4 h-4 text-red-700 bg-gray-100 border-gray-400 focus:ring-red-700 focus:ring-2 " >
+              <label for="list-radio-read" class="py-3 ml-2 w-full text-sm font-medium text-gray-900">Oui</label>
+            </div>
+          </li>
+          <li class="w-full rounded-t-lg border-b border-gray-400">
+            <div class="flex items-center pl-3">
+              <input id="list-radio-unread" type="radio" [value]="false" [(ngModel)]="comic.isRead" name="list-radio-read" class="w-4 h-4 text-red-700 bg-gray-100 border-gray-400 focus:ring-red-700 focus:ring-2">
+              <label for="list-radio-unread" class="py-3 ml-2 w-full text-sm font-medium text-gray-900">Non</label>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="mb-4 font-bold text-gray-700">Ce comics fait partie d'une série</h3>
+        <ul class="w-48 text-sm font-medium text-gray-700 bg-gray-200 rounded-lg border border-gray-400">
+          <li class="w-full rounded-t-lg border-b border-gray-400">
+            <div class="flex items-center pl-3">
+              <input id="list-radio-serie" type="radio" [value]="true" [(ngModel)]="comic.isSerie" name="list-radio-serie" class="w-4 h-4 text-red-700 bg-gray-100 border-gray-400 focus:ring-red-700 focus:ring-2">
+              <label for="list-radio-serie" class="py-3 ml-2 w-full text-sm font-medium text-gray-900">Oui</label>
+            </div>
+          </li>
+          <li class="w-full rounded-t-lg border-b border-gray-400">
+            <div class="flex items-center pl-3">
+              <input id="list-radio-unserie" type="radio" [value]="false" [(ngModel)]="comic.isSerie" name="list-radio-serie" class="w-4 h-4 text-red-700 bg-gray-100 border-gray-400 focus:ring-red-700 focus:ring-2">
+              <label for="list-radio-unserie" class="py-3 ml-2 w-full text-sm font-medium text-gray-900">Non</label>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="number">
+          Si oui, numéro du comics
+        </label>
+        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3
+      leading-tight focus:outline-none focus:bg-white focus:border-red-700" id="number" [(ngModel)]="comic.seriesNumber" type="number" placeholder="Numéro du comis">
+      </div>
+
+
+    </div>
+  </div>
+  <div class=" ml-56 mr-56 mb-24">
+    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="desc">
+      Description du comic
+    </label>
+    <textarea id="desc" rows="4" class="block p-2.5 w-full text-sm bg-gray-200 text-gray-700 rounded-lg border
+      focus:border-red-700 focus:bg-white focus:outline-none" placeholder="Ecrivez une description ici..." [(ngModel)]="comic.description"></textarea>
+  </div>
+
+  <div class="ml-56 mr-56 mb-24 text-center">
+    <button routerLink="/comics" routerLinkActive="active" class="bg-white hover:bg-red-300 text-gray-800 font-semibold py-2 px-4 border border-red-700 rounded shadow">
+      Annuler
+    </button>
+    <button class="bg-white ml-5 hover:bg-green-600 text-gray-800 font-semibold py-2 px-4 border border-green-700 rounded shadow"
+            (click)="modif()">
+      Modifier les informations !
+    </button>
+  </div>
+</div>
