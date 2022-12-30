@@ -30,3 +30,26 @@
 <router-outlet></router-outlet>
 </body>
 
+<footer class="p-4 bg-white-100 rounded-lg shadowmd:px-6 md:py-8 bottom-0 left-0 right-0">
+  <div class="sm:flex sm:items-center sm:justify-between">
+    <a  routerLink="" routerLinkActive="active" class="flex items-center mb-4 sm:mb-0">
+      <img src="assets/logo.png" class="mr-3 h-8" alt="Flowbite Logo" />
+      <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">ComicsThèque</span>
+    </a>
+    <ul class="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
+      <li>
+        <a routerLink="" routerLinkActive="active" class="mr-4 hover:underline md:mr-6 ">Accueil</a>
+      </li>
+      <li>
+        <a routerLink="/comics" routerLinkActive="active" class="mr-4 hover:underline md:mr-6">Liste</a>
+      </li>
+      <li>
+        <a routerLink="/new" routerLinkActive="active" class="mr-4 hover:underline md:mr-6 ">Ajouter</a>
+      </li>
+    </ul>
+  </div>
+  <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+  <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">2023 <a href="https://mattfritsch.github.io/" class="hover:underline">Matthieu FRITSCH™</a>.
+    </span>
+</footer>
+
