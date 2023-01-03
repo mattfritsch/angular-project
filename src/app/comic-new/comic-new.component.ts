@@ -21,7 +21,6 @@ export class ComicNewComponent implements OnInit {
   add(){
     this.Comic.saveNewComic(this.comic).subscribe(() => {
       this.comic = new Comics()
-      document.location.href = '/comics'
     })
   }
 

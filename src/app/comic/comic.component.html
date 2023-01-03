@@ -29,12 +29,14 @@
           "
   >
     <div class="flex flex-col justify-start items-baseline">
-      <h1 class="text-lg font-normal mb-0 text-gray-600 font-sans">
-        {{name}} <span *ngIf="seriesNumber != null"> #{{seriesNumber}}</span>
+      <h1 class="text-lg font-semibold mb-0 font-sans mr-3" [ngClass]="{'text-red-800' : universe === 'marvel',
+       'text-blue-700' : universe === 'dc'}">
+        {{name}} <span *ngIf="seriesNumber != ''"> #{{seriesNumber}}</span>
       </h1>
-      <span class="text-xs text-indigo-300 mt-0">par {{author}}</span>
+      <span class="text-xs text-indigo-300 mt-0" *ngIf="isRead">Vous avez <span class="font-bold">lu</span> ce comics</span>
+      <span class="text-xs text-indigo-300 mt-0" *ngIf="!isRead">Vous n'avez <span class="font-bold">pas lu</span> ce comics</span>
     </div>
-    <p class="text-xs text-gray-500 w-4/5">
+    <p class="truncate text-xs text-gray-500 w-4/5">
       {{description}}
     </p>
     <div class="w-full flex justify-between items-center">

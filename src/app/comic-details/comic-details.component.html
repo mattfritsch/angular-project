@@ -1,12 +1,17 @@
-<div class="flex flex-col justify-center p-9">
-  <h1 class="font-bold text-center text-4xl">{{comic.name}} <span *ngIf="comic.seriesNumber != null">#{{comic.seriesNumber}}</span></h1>
-  <h2 class="font-bold text-center text-xl" *ngIf="comic.typeOfList === 'readingList'">Liste de lecture</h2>
+
+<button routerLink="/comics" routerLinkActive="active" class="bg-white hover:bg-red-300 text-gray-800 font-semibold py-2 ml-6 mt-6 mb-6 px-4 border border-red-700 rounded shadow">
+  Retour
+</button>
+<div class="flex flex-col justify-center p-9 border rounded-xl m-6" [ngClass]="{ 'border-red-700' : comic.universe === 'marvel',
+'border-blue-800' : comic.universe === 'dc'}">
+  <h1 class="font-bold text-center text-4xl">{{comic.name}} <span *ngIf="comic.seriesNumber != ''">#{{comic.seriesNumber}}</span></h1>
+  <h2 class="font-bold text-center text-xl mb-11" *ngIf="comic.typeOfList === 'readingList'">Liste de lecture</h2>
   <h2 class="font-bold text-center text-xl" *ngIf="comic.typeOfList === 'wishList'">Liste d'envie</h2>
-  <div class="flex flex-row justify-center mb-44">
-    <div class="flex flex-col justify-center ml-56">
+  <div class="flex flex-row justify-center">
+    <div class="flex flex-col justify-center mt-6">
       <img class="w-1/2" [src]="comic.cover" alt="{{comic.name}} cover">
     </div>
-    <div class="flex flex-col justify-center mb-44 mr-56 text-white rounded-xl w-1/2 p-6 text-center py-16" [ngClass]="{ 'bg-red-700' : comic.universe === 'marvel',
+    <div class="flex flex-col justify-center text-white rounded-xl p-2 text-center mt-6" [ngClass]="{ 'bg-red-700' : comic.universe === 'marvel',
   'bg-blue-800' : comic.universe === 'dc'}">
       <p class="font-semibold">{{comic.description}}</p>
       <br>
