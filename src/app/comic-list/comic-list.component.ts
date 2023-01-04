@@ -19,12 +19,4 @@ export class ComicListComponent implements OnInit {
     })
   }
 
-  readAll(){
-    this.Comic.setRead();
-  }
-
-  unreadAll(){
-    this.Comic.setUnread();
-  }
-
 }

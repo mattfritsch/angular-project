@@ -12,9 +12,15 @@
           overflow-hidden
           sm:flex-row sm:h-52 sm:w-3/5
           md:w-96
+          border-4
         "
+  [ngClass]="{'border-green-400' : typeOfList === 'readingList',
+              'border-purple-400' : typeOfList === 'wishList'
+              }"
 >
-  <img class="h-1/2 w-full sm:h-full sm:w-1/2 object-cover" [src]="cover" alt="{{cover}} cover"/>
+  <img class="h-1/2 w-full sm:h-full sm:w-1/2 object-cover"
+       [src]="cover"
+       alt="{{cover}} cover"/>
 
   <div
     class="
@@ -29,20 +35,26 @@
           "
   >
     <div class="flex flex-col justify-start items-baseline">
-      <h1 class="text-lg font-semibold mb-0 font-sans mr-3" [ngClass]="{'text-red-800' : universe === 'marvel',
-       'text-blue-700' : universe === 'dc'}">
-        {{name}} <span *ngIf="seriesNumber != ''"> #{{seriesNumber}}</span>
+      <h1 class="text-lg font-semibold mb-0 font-sans mr-3"
+          [ngClass]="{'text-red-800' : universe === 'marvel',
+          'text-blue-700' : universe === 'dc'}">
+            {{name}} <span *ngIf="seriesNumber != ''"> #{{seriesNumber}}</span>
       </h1>
-      <span class="text-xs text-indigo-300 mt-0" *ngIf="isRead">Vous avez <span class="font-bold">lu</span> ce comics</span>
-      <span class="text-xs text-indigo-300 mt-0" *ngIf="!isRead">Vous n'avez <span class="font-bold">pas lu</span> ce comics</span>
+      <span class="text-xs text-indigo-300 mt-0"
+            *ngIf="isRead">Vous avez <span class="font-bold">lu</span> ce comics</span>
+      <span class="text-xs text-indigo-300 mt-0"
+            *ngIf="!isRead">Vous n'avez <span class="font-bold">pas lu</span> ce comics</span>
     </div>
     <p class="truncate text-xs text-gray-500 w-4/5">
       {{description}}
     </p>
     <div class="w-full flex justify-between items-center">
-        <button class="bg-green-800 mr-1 text-white px-3 py-1 rounded-sm shadow-md" [routerLink]="['/details', id]">Détails</button>
-        <button class="bg-yellow-500 mr-1 text-white px-3 py-1 rounded-sm shadow-md" [routerLink]="['/modif', id]">M</button>
-        <button class="bg-red-800 mr-5 text-white px-3 py-1 rounded-sm shadow-md" (click)="supr()">X</button>
+        <button class="bg-green-800 mr-1 text-white px-3 py-1 rounded-sm shadow-md"
+                [routerLink]="['/details', id]">Détails</button>
+        <button class="bg-yellow-500 mr-1 text-white px-3 py-1 rounded-sm shadow-md"
+                [routerLink]="['/modif', id]">M</button>
+        <button class="bg-red-800 mr-5 text-white px-3 py-1 rounded-sm shadow-md"
+                (click)="supr()">X</button>
     </div>
   </div>
 </div>
