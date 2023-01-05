@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Subject, Observable} from "rxjs";
+import { Observable} from "rxjs";
 import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/firestore";
 import { Comics} from "../../models/comics.model";
 import {map} from "rxjs/operators";
@@ -11,8 +11,6 @@ export class ComicService {
 
   private dbPath = '/comics';
   comicsRef: AngularFirestoreCollection<Comics>;
-  private comics? : any;
-  comicsSubject = new Subject<any[]>();
 
   constructor(
     private db: AngularFirestore

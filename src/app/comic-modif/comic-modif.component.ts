@@ -32,7 +32,7 @@ export class ComicModifComponent implements OnInit {
         this.change = false
         //relocalise l'utilisateur sur la page Liste
         document.location.href = '/comics';
-      }, 3000)
+      }, 2000)
     })
   }
 
