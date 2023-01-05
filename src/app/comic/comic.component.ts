@@ -32,14 +32,7 @@ export class ComicComponent implements OnInit {
     return this.isRead ? "lu" : "pas lu";
   }
 
-  moreInformation(){
-    console.log("ouverture de la card")
-  }
-
-  onSwitch(){
-    this.Comic.switchOnRead(this.id);
-  }
-
+  //fonction pour supprimer un comic
   supr(){
     this.Comic.delete(this.id)
   }

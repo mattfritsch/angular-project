@@ -18,6 +18,7 @@ export class ComicNewComponent implements OnInit {
     this.comic = new Comics();
   }
 
+  //fonction pour ajouter un comic dans la base de données
   add(){
     this.Comic.saveNewComic(this.comic).subscribe(() => {
       this.comic = new Comics()

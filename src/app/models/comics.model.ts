@@ -1,3 +1,4 @@
+//tous les attributs de la base de données sont déclarés dans ce fichier
 export class Comics {
   id? : string;
   name? : string;

@@ -15,6 +15,7 @@ export class ComicDetailsComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
+  //on récupère l'id du comic, pour afficher les détails du comic sélectionné
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
     this.Comic.get(id).subscribe((value: any) => {

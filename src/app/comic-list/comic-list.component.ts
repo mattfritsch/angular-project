@@ -13,6 +13,7 @@ export class ComicListComponent implements OnInit {
     private Comic : ComicService
   ) {}
 
+  //on récupère tous les comics présent dans la base de données pour les afficher sur la page Liste
   ngOnInit() : void{
     this.Comic.getAllComics().subscribe((data:any) =>{
       this.comics = data;

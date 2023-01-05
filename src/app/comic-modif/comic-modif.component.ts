@@ -15,6 +15,7 @@ export class ComicModifComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
+  //on récupère l'id du comic, pour afficher les détails du comic sélectionné sur la page de modification
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
     this.Comic.get(id).subscribe((value: any) => {
@@ -23,11 +24,13 @@ export class ComicModifComponent implements OnInit {
     })
   }
 
+  //fonction pour modifier les informations du comics
   modif(){
     this.Comic.update(this.comic).subscribe(() => {
       this.change = true;
       setTimeout(() => {
         this.change = false
+        //relocalise l'utilisateur sur la page Liste
         document.location.href = '/comics';
       }, 3000)
     })

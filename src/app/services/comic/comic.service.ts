@@ -20,6 +20,7 @@ export class ComicService {
     this.comicsRef = db.collection(this.dbPath)
   }
 
+  //fonction pour récupérer tous les comics présent dans la base de données
   getAllComics() : any{
     return this.comicsRef.snapshotChanges().pipe(
       map((changes:any) =>{
@@ -30,6 +31,8 @@ export class ComicService {
     )
   }
 
+  //fonction pour ajouter un comic dans la base de données
+
   saveNewComic(comic: Comics): any{
     return new Observable(obs=>{
       this.comicsRef.add({...comic}).then(() =>{
@@ -38,6 +41,7 @@ export class ComicService {
     })
   }
 
+  //fonction pour récupérer un comic en particulier en fonction de son id
   get(id: any) : any{
     return new Observable(obs => {
       this.comicsRef.doc(id).get().subscribe(res => {
@@ -46,6 +50,8 @@ export class ComicService {
     })
   }
 
+  //fonction pour modifier les informations d'un comic
+
   update(comic : Comics){
     return new Observable(obs => {
       this.comicsRef.doc(comic.id).update(comic);
@@ -53,34 +59,10 @@ export class ComicService {
     })
   }
 
+  //fonction pour supprimer un comic
+
   delete(id: any){
     this.db.doc(`comics/${id}`).delete()
-  }
-  setRead(){
-    for (const comic of this.comics){
-      comic.read = true;
-    }
-  }
-
-  setUnread(){
-    for(const comic of this.comics){
-      comic.read = false;
-      console.log(comic)
-    }
-  }
-
-  switchOnRead(index: any){
-    this.comics[index].read = !this.comics[index].read
-  }
-
-  getComicById(id : number){
-    let tmp;
-    for(const comic of this.comics){
-      if(comic.id === id){
-        tmp = comic;
-      }
-    }
-    return tmp;
   }
 
 }
